@@ -6,8 +6,8 @@ const router = express.Router();
 const roadAccident = require('../models/roadAccident');
 
 router.get('/fetchAll',async (req,res)=>{
-    const roadAccidentData = await roadAccident.find({});
-    res.send(roadAccidentData);
+    const roadAccidentData = await roadAccident.find({}).sort([['date', -1]]);
+    res.json(roadAccidentData);
 });
 
 
